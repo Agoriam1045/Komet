@@ -1,14 +1,48 @@
 #include <Komet.h>
 
+#include "imgui/imgui.h"
+
+class ExampleLayer : public Komet::Layer
+{
+public:
+	ExampleLayer()
+		: Layer("Example")
+	{
+	}
+
+	void OnUpdate() override
+	{
+		if (Komet::Input::IsKeyPressed(KM_KEY_TAB))
+			KM_TRACE("Tab key is pressed! (poll)");
+	}
+
+	virtual void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World!");
+		ImGui::End();
+	}
+
+	void OnEvent(Komet::Event& event) override
+	{
+		if (event.GetEventType() == Komet::EventType::KeyPressed)
+		{
+			if (Komet::Input::IsKeyPressed(KM_KEY_TAB))
+				KM_TRACE("Tab key is pressed! (event)");
+		}
+	}
+};
+
 class SandBox : public Komet::Application {
 public:
-	SandBox() {
-
+	SandBox() 
+	{
+		PushLayer(new ExampleLayer());
 	}
 
 
-	~SandBox() {
-
+	~SandBox() 
+	{
 	}
 
 
