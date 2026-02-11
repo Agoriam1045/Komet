@@ -13,8 +13,20 @@
     <Filter Include="src\Komet\ImGui">
       <UniqueIdentifier>{A61963F9-12A5-D0BD-1BB6-53B287C02CBE}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Komet\Prefabs">
+      <UniqueIdentifier>{0E202807-7A36-269D-C3AD-B1BE2F03F724}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Komet\Renderer">
+      <UniqueIdentifier>{A266D7F0-8E4A-9846-F7AA-9299E3AD82C8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Komet\Shaders">
+      <UniqueIdentifier>{55D879D6-C1EE-776C-0A66-038E76BB48F4}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platform\OpenGL">
+      <UniqueIdentifier>{35A49437-A105-7245-2A73-B8F796D3A804}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Platform\Windows">
       <UniqueIdentifier>{5B054582-4794-CE4B-F0B2-E246DC20DFF1}</UniqueIdentifier>
@@ -87,8 +99,32 @@
     <ClInclude Include="src\Komet\MouseButtonCodes.h">
       <Filter>src\Komet</Filter>
     </ClInclude>
+    <ClInclude Include="src\Komet\Prefabs\Primitive.h">
+      <Filter>src\Komet\Prefabs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Komet\Renderer\Camera.h">
+      <Filter>src\Komet\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Komet\Renderer\GraphicsContext.h">
+      <Filter>src\Komet\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Komet\Renderer\Mesh.h">
+      <Filter>src\Komet\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Komet\Renderer\Model.h">
+      <Filter>src\Komet\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Komet\Renderer\Shader.h">
+      <Filter>src\Komet\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Komet\Renderer\Texture.h">
+      <Filter>src\Komet\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Komet\Window.h">
       <Filter>src\Komet</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
       <Filter>src\Platform\Windows</Filter>
@@ -1376,6 +1412,27 @@
     <ClCompile Include="src\Komet\Log.cpp">
       <Filter>src\Komet</Filter>
     </ClCompile>
+    <ClCompile Include="src\Komet\Prefabs\Primitive.cpp">
+      <Filter>src\Komet\Prefabs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Komet\Renderer\Camera.cpp">
+      <Filter>src\Komet\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Komet\Renderer\Mesh.cpp">
+      <Filter>src\Komet\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Komet\Renderer\Model.cpp">
+      <Filter>src\Komet\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Komet\Renderer\Shader.cpp">
+      <Filter>src\Komet\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Komet\Renderer\Texture.cpp">
+      <Filter>src\Komet\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
@@ -1385,5 +1442,13 @@
     <ClCompile Include="src\kmpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Komet\Shaders\default.FS.glsl">
+      <Filter>src\Komet\Shaders</Filter>
+    </None>
+    <None Include="src\Komet\Shaders\default.VS.glsl">
+      <Filter>src\Komet\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

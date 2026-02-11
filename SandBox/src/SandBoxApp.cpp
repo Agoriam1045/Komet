@@ -18,8 +18,8 @@ public:
 
 	virtual void OnImGuiRender() override
 	{
-		ImGui::Begin("Test");
-		ImGui::Text("Hello World!");
+		ImGui::Begin("To Access Mouse Cursor press ESC");
+		ImGui::Text("Move with Mouse + W,A,S,D + Q,E");
 		ImGui::End();
 	}
 

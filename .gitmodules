@@ -10,3 +10,6 @@
 [submodule "Komet/vendor/glm"]
 	path = Komet/vendor/glm
 	url = https://github.com/g-truc/glm
+[submodule "Komet/vendor/assimp"]
+	path = Komet/vendor/assimp
+	url = https://github.com/assimp/assimp

@@ -16,6 +16,8 @@ IncludeDir["GLFW"] = "Komet/vendor/GLFW/include"
 IncludeDir["Glad"] = "Komet/vendor/Glad/include"
 IncludeDir["ImGui"] = "Komet/vendor/imgui"
 IncludeDir["glm"] = "Komet/vendor/glm"
+IncludeDir["stbi"] = "Komet/vendor/stbi"
+IncludeDir["Assimp"] = "Komet/vendor/assimp/include"
 
 group "Dependencies"
 	include "Komet/vendor/GLFW"
@@ -44,6 +46,7 @@ project "Komet"
 		"%{prj.name}/src/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl",
+		"%{prj.name}/src/Komet/Shaders/**.glsl"
 
 	}
 
@@ -59,7 +62,10 @@ project "Komet"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stbi}",
+		"%{IncludeDir.Assimp}",
+		"Komet/vendor/assimp/build/include"
 
 	}
 
@@ -69,7 +75,8 @@ project "Komet"
 		"Glad",
 		"ImGui",
 		"opengl32.lib",
-		"dwmapi.lib"
+		"dwmapi.lib",
+		"%{wks.location}/Komet/vendor/assimp/build/lib/Release/assimp-vc143-mt.lib"
 	}
 
 	filter "system:windows"
@@ -78,7 +85,7 @@ project "Komet"
 		defines
 		{
 			"KM_PLATFORM_WINDOWS",
-			"KM_BUILD_DLL",
+			
 			"GLFW_INCLUDE_NONE"
 		}
 
@@ -105,6 +112,7 @@ project "Komet"
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
+	debugdir "%{wks.location}"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "on"
@@ -123,6 +131,7 @@ project "Sandbox"
 		"Komet/vendor/spdlog/include",
 		"Komet/src",
 		"Komet/vendor",
+		"%{IncludeDir.Glad}",
 		"%{IncludeDir.glm}"
 	}
 
@@ -133,6 +142,11 @@ project "Sandbox"
 
 	filter "system:windows"
 		systemversion "latest"
+
+		postbuildcommands
+        {
+            ("{COPY} %{wks.location}/Komet/vendor/assimp/build/bin/Release/assimp-vc143-mt.dll %{cfg.targetdir}")
+        }
 
 		defines
 		{
